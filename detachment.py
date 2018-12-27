@@ -9,6 +9,7 @@ from networkx.utils import random_weighted_sample
 from networkx.utils import weighted_choice
 import matplotlib.pyplot as plt
 import sys, getopt, random, collections
+import progressbar
 
 def generate_sf(n, m0, m):
     """
@@ -66,7 +67,7 @@ def sim_first(n, m0, m, steps):
 
     plot_degree_hist(G)
 
-    for i in range(steps):
+    for i in progressbar.progressbar(range(steps)):
         # choose an edge
         edge = random.choice(list(G.edges()))
         # choose which side of it to keep
